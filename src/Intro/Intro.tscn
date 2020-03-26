@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/logoteam/little256.png" type="Texture" id=1]
+[ext_resource path="res://assets/logoteam/crown512.png" type="Texture" id=2]
+[ext_resource path="res://assets/logoteam/mahkota128.png" type="Texture" id=3]
+[ext_resource path="res://assets/sound/Blop-Mark_DiAngelo-79054334.wav" type="AudioStream" id=4]
+[ext_resource path="res://src/Intro/Intro.gd" type="Script" id=5]
+[ext_resource path="res://src/UserInterface/FirstMenu.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Intro"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("bakground/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1.2, 3.2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("bloop")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 1.5 )
+}
+
+[node name="Intro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_scene = ExtResource( 6 )
+
+[node name="bakground" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="bakground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LittleLabel" type="TextureRect" parent="bakground"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -128.0
+margin_top = 133.0
+margin_right = 128.0
+margin_bottom = 224.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="CrownLabel" type="TextureRect" parent="bakground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -82.5
+margin_right = 256.0
+margin_bottom = 148.5
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Crown" type="TextureRect" parent="bakground"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -273.0
+margin_top = 57.0
+margin_right = -145.0
+margin_bottom = 173.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="bloop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Intro"
+anims/Intro = SubResource( 1 )

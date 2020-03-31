@@ -1,0 +1,160 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/font/letter_gothic.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UserInterface/Item/DetailItem.gd" type="Script" id=2]
+[ext_resource path="res://assets/font/letter_gothic12.tres" type="DynamicFont" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.180392, 0.152941, 0.121569, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.180392, 0.152941, 0.121569, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="RectangleShape2D" id=5]
+
+[node name="DetailItem" type="VBoxContainer"]
+margin_right = 164.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 164, 143 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundLabel" type="Panel" parent="."]
+margin_right = 164.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 128, 24 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="BackgroundLabel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -8.5
+margin_right = 50.0
+margin_bottom = 8.5
+custom_fonts/font = ExtResource( 1 )
+text = "Detail"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgrundDetail" type="Panel" parent="."]
+margin_top = 28.0
+margin_right = 164.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 128, 115 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="LabelEquipment" type="Label" parent="BackgrundDetail"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -75.0
+margin_top = 5.0
+margin_right = 75.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 3 )
+text = "Not Selected "
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelDetailEquip" type="RichTextLabel" parent="BackgrundDetail"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -35.0
+margin_right = 80.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 160, 65 )
+custom_fonts/normal_font = ExtResource( 3 )
+text = "Detail equipment"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundUse" type="Panel" parent="BackgrundDetail"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -75.0
+margin_top = -27.5
+margin_right = 75.0
+margin_bottom = -7.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="BackgrundDetail/BackgroundUse"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 3 )
+text = "Use"
+align = 1
+
+[node name="TouchUse" type="TouchScreenButton" parent="BackgrundDetail/BackgroundUse"]
+show_behind_parent = true
+scale = Vector2( 6.96543, 0.952209 )
+shape = SubResource( 5 )
+
+[node name="BackgroundNotUse" type="Panel" parent="BackgrundDetail"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -75.0
+margin_top = -27.5
+margin_right = 75.0
+margin_bottom = -7.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="BackgrundDetail/BackgroundNotUse"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 3 )
+text = "Not Use"
+align = 1
+
+[node name="TouchNotUse" type="TouchScreenButton" parent="BackgrundDetail/BackgroundNotUse"]
+show_behind_parent = true
+scale = Vector2( 6.96543, 0.952209 )
+shape = SubResource( 5 )
+[connection signal="pressed" from="BackgrundDetail/BackgroundUse/TouchUse" to="." method="_on_TouchUse_pressed"]
+[connection signal="pressed" from="BackgrundDetail/BackgroundNotUse/TouchNotUse" to="." method="_on_TouchNotUse_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/player/walk/walk3_0004.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/idle/diam_0001.png" type="Texture" id=2]
@@ -10,6 +10,24 @@
 [ext_resource path="res://assets/player/walk/walk3_0006.png" type="Texture" id=8]
 [ext_resource path="res://assets/player/walk/walk3_0008.png" type="Texture" id=9]
 [ext_resource path="res://assets/player/walk/walk3_0007.png" type="Texture" id=10]
+[ext_resource path="res://assets/player/idle_axe/berhenti dengan kapak2_0001.png" type="Texture" id=11]
+[ext_resource path="res://assets/player/idle_hammer/berhenti dengan palu2_0001.png" type="Texture" id=12]
+[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0001.png" type="Texture" id=13]
+[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0005.png" type="Texture" id=14]
+[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0006.png" type="Texture" id=15]
+[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0007.png" type="Texture" id=16]
+[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0008.png" type="Texture" id=17]
+[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0003.png" type="Texture" id=18]
+[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0004.png" type="Texture" id=19]
+[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0001.png" type="Texture" id=20]
+[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0003.png" type="Texture" id=21]
+[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0004.png" type="Texture" id=22]
+[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0002.png" type="Texture" id=23]
+[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0002.png" type="Texture" id=24]
+[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0005.png" type="Texture" id=25]
+[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0006.png" type="Texture" id=26]
+[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0007.png" type="Texture" id=27]
+[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0008.png" type="Texture" id=28]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -17,6 +35,26 @@ animations = [ {
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "IdleAxe",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 24 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "walkHammer",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "IdleHammer",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "walkAxe",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ],
 "loop": true,
@@ -29,6 +67,7 @@ extents = Vector2( 34, 73.1513 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -77 )
+collision_layer = 2
 script = ExtResource( 3 )
 
 [node name="PlayerAnimation" type="AnimatedSprite" parent="."]

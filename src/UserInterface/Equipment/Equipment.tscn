@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/font/letter_gothic.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UserInterface/Equipment/Equipment.gd" type="Script" id=2]
+[ext_resource path="res://src/UserInterface/Item/DetailItem.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.180392, 0.152941, 0.121569, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.180392, 0.152941, 0.121569, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="Equipment" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -398.0
+margin_bottom = -337.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 444.0
+margin_bottom = 143.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DetailItem" parent="HBoxContainer" instance=ExtResource( 3 )]
+
+[node name="ItemEquipment" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 168.0
+margin_right = 444.0
+margin_bottom = 143.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundLabel" type="Panel" parent="HBoxContainer/ItemEquipment"]
+margin_right = 276.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 276, 24 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/ItemEquipment/BackgroundLabel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -8.5
+margin_right = 50.0
+margin_bottom = 8.5
+custom_fonts/font = ExtResource( 1 )
+text = "Equipment "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgrundEquip" type="Panel" parent="HBoxContainer/ItemEquipment"]
+margin_top = 28.0
+margin_right = 276.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 276, 115 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="ItemContainer" type="GridContainer" parent="HBoxContainer/ItemEquipment/BackgrundEquip"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 5.0
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}

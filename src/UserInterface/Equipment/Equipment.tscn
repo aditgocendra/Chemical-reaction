@@ -21,7 +21,7 @@ border_width_bottom = 2
 [node name="Equipment" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -398.0
+margin_right = -504.0
 margin_bottom = -337.0
 script = ExtResource( 2 )
 __meta__ = {
@@ -29,7 +29,7 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 444.0
+margin_right = 368.0
 margin_bottom = 143.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -39,16 +39,16 @@ __meta__ = {
 
 [node name="ItemEquipment" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 168.0
-margin_right = 444.0
+margin_right = 338.0
 margin_bottom = 143.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BackgroundLabel" type="Panel" parent="HBoxContainer/ItemEquipment"]
-margin_right = 276.0
+margin_right = 170.0
 margin_bottom = 24.0
-rect_min_size = Vector2( 276, 24 )
+rect_min_size = Vector2( 170, 24 )
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -72,9 +72,9 @@ __meta__ = {
 
 [node name="BackgrundEquip" type="Panel" parent="HBoxContainer/ItemEquipment"]
 margin_top = 28.0
-margin_right = 276.0
+margin_right = 170.0
 margin_bottom = 143.0
-rect_min_size = Vector2( 276, 115 )
+rect_min_size = Vector2( 170, 115 )
 custom_styles/panel = SubResource( 2 )
 
 [node name="ItemContainer" type="GridContainer" parent="HBoxContainer/ItemEquipment/BackgrundEquip"]
@@ -82,7 +82,7 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = 5.0
 margin_bottom = 5.0
-columns = 5
+columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }

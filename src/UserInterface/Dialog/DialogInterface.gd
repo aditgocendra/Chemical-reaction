@@ -13,17 +13,9 @@ onready var finish_touch = $BackgroundDialog/TouchFinishDialog
 onready var scene_tree: SceneTree = get_tree()
 
 func _ready() -> void:
+	GameDatabase.connect("updated_mission", self, "updated_dialog")
 	#load data dialog
-	var data
-	if	check_mission() == false:
-		indexes = 0
-		data = instance_db["talking"]["dialog_prof_nurdin"]
-		conversation = data.values()
-		_update()
-	else:
-		data = instance_db["talking"]["end_dialog"]
-		conversation = data.values()
-		_update()
+	get_dialog()
 
 
 func _update():
@@ -96,3 +88,25 @@ func _on_TouchFinishDialog_pressed() -> void:
 	next_touch.show()
 	_update()
 	scene_tree.paused = false
+
+
+func get_dialog():
+	var data
+	if	check_mission() == false:
+		indexes = 0
+		data = instance_db["talking"]["dialog_prof_nurdin"]
+		conversation = data.values()
+		_update()
+	else:
+		data = instance_db["talking"]["end_dialog"]
+		conversation = data.values()
+		_update()
+
+
+
+func updated_dialog():
+	instance_db = GameDatabase.json_data
+	next_touch.show()
+	finish_touch.hide()
+	get_dialog()
+	

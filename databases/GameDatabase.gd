@@ -18,6 +18,9 @@ var default_data = {
   "player_mission": {
 	"mission": null
   },
+  "player_init": {
+	"scene":"res://src/Laboratory/Laboratory.tscn"
+  },
   "talking": {
 	"dialog_prof_nurdin": {
 	  "001": {
@@ -60,7 +63,7 @@ var default_data = {
   }
 }
 
-signal updated
+signal updated_mission
 signal update_detail
 signal update_texture_equip
 
@@ -107,7 +110,7 @@ func save_data(new_data):
 	
 func update_data(json_data):
 	json_data = load_data()
-	emit_signal("updated")
+	emit_signal("updated_mission")
 	
 	
 

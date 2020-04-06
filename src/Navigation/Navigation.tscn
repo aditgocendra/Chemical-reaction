@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/navigation/move_right_active_128.png" type="Texture" id=1]
 [ext_resource path="res://assets/navigation/move_left_128.png" type="Texture" id=2]
@@ -12,11 +12,10 @@
 [ext_resource path="res://assets/object/btn/btn_retry.png" type="Texture" id=10]
 [ext_resource path="res://assets/object/btn/btn_back_to_menu.png" type="Texture" id=11]
 [ext_resource path="res://assets/object/btn/Quit.png" type="Texture" id=12]
-[ext_resource path="res://assets/object/btn/action_btn.png" type="Texture" id=13]
-[ext_resource path="res://assets/object/btn/action_btn_active.png" type="Texture" id=14]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 32.0
+[ext_resource path="res://assets/object/btn/texture_action_active.png" type="Texture" id=13]
+[ext_resource path="res://assets/object/btn/texture_action.png" type="Texture" id=14]
+[ext_resource path="res://assets/object/btn/jump_btn.png" type="Texture" id=15]
+[ext_resource path="res://assets/object/btn/jump_btn_active_1.png" type="Texture" id=16]
 
 [node name="Navigation" type="Control"]
 anchor_right = 1.0
@@ -77,10 +76,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -508.0
-margin_top = -76.0
-margin_right = -66.0
-margin_bottom = 65.0
+margin_left = -412.0
+margin_top = -67.0
+margin_right = -71.0
+margin_bottom = 74.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -167,11 +166,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -181.0
-margin_top = -144.0
-margin_right = -116.0
-margin_bottom = -80.0
-texture = ExtResource( 13 )
+margin_left = -137.0
+margin_top = -139.0
+margin_right = -9.0
+margin_bottom = -11.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -181,20 +179,37 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = -32.0
+margin_top = -34.0
+margin_right = 48.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 80, 80 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="BackgroundTextureAct"]
-normal = ExtResource( 13 )
-pressed = ExtResource( 14 )
-shape = SubResource( 1 )
+normal = ExtResource( 14 )
+pressed = ExtResource( 13 )
+
+[node name="BotRightContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -245.0
+margin_top = -109.0
+margin_right = -145.0
+margin_bottom = -9.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchJump" type="TouchScreenButton" parent="BotRightContainer"]
+normal = ExtResource( 15 )
+pressed = ExtResource( 16 )
 [connection signal="pressed" from="HBoxContainer/Touch_left" to="." method="_on_Touch_left_pressed"]
 [connection signal="released" from="HBoxContainer/Touch_left" to="." method="_on_Touch_left_released"]
 [connection signal="pressed" from="HBoxContainer/Touch_Right" to="." method="_on_Touch_Right_pressed"]
@@ -205,3 +220,5 @@ shape = SubResource( 1 )
 [connection signal="pressed" from="PauseOverlay/VBoxContainer/TouchRetry" to="." method="_on_TouchRetry_pressed"]
 [connection signal="pressed" from="PauseOverlay/VBoxContainer/TouchBackMenu" to="." method="_on_TouchBackMenu_pressed"]
 [connection signal="pressed" from="PauseOverlay/VBoxContainer/TouchQuit" to="." method="_on_TouchQuit_pressed"]
+[connection signal="pressed" from="BotRightContainer/TouchJump" to="." method="_on_TouchJump_pressed"]
+[connection signal="released" from="BotRightContainer/TouchJump" to="." method="_on_TouchJump_released"]

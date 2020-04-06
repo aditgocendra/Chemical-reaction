@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Chemical-reaction"
 run/main_scene="res://src/Intro/Intro.tscn"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -47,6 +48,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_1="world"
 2d_physics/layer_2="player"
 2d_physics/layer_3="npc"
+2d_physics/layer_4="platform"
 
 [rendering]
 

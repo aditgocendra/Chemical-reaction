@@ -10,6 +10,11 @@ onready var equipment_interface = preload("res://src/UserInterface/Equipment/Equ
 onready var texture_action = $BackgroundTextureAct/EquipmentTexture
 onready var bg_texture_action = $BackgroundTextureAct
 
+#touch---------------------------------------------------
+onready var touch_right = $HBoxContainer/Touch_Right
+onready var touch_left = $HBoxContainer/Touch_left
+onready var touch_jump = $BotRightContainer/TouchJump
+#end touch---------------------------------------------------
 
 var clickable: = Vector2.ZERO
 
@@ -20,6 +25,8 @@ func _ready() -> void:
 
 
 func _on_Touch_left_pressed() -> void:
+	if touch_jump.is_pressed():
+		clickable = Vector2(-1.0, -1.0)
 	clickable = Vector2(-1.0,0.0)
 
 
@@ -28,13 +35,27 @@ func _on_Touch_left_released() -> void:
 
 
 func _on_Touch_Right_pressed() -> void:
-	clickable = Vector2(1.0,0.0)
+	if touch_jump.is_pressed():
+		clickable = Vector2(1.0, -1.0)
+	else: clickable = Vector2(1.0,0.0)
 
 
 func _on_Touch_Right_released() -> void:
 	clickable = Vector2.ZERO
 
 
+func _on_TouchJump_pressed() -> void:
+	if touch_left.is_pressed():
+		clickable = Vector2(-1.0,-1.0)
+	elif touch_right.is_pressed():
+		clickable = Vector2(1.0,-1.0)
+	else: clickable = Vector2(0.0, -1.0)
+	
+
+
+func _on_TouchJump_released() -> void:
+	clickable = Vector2.ZERO
+	
 
 func get_value():
 	return clickable
@@ -90,3 +111,9 @@ func update_texture_action():
 		bg_texture_action.show()
 		texture_action.texture = load(path)
 	else: bg_texture_action.hide()
+
+
+
+
+
+

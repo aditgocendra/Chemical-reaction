@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/portal.png-078b12227089b776b2166d031a5a75b4.stex"
+path="res://.import/jump_btn_active_1.png-a2abb4da9c361af93f176f5ddb104bf2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/object/portal.png"
-dest_files=[ "res://.import/portal.png-078b12227089b776b2166d031a5a75b4.stex" ]
+source_file="res://assets/object/btn/jump_btn_active_1.png"
+dest_files=[ "res://.import/jump_btn_active_1.png-a2abb4da9c361af93f176f5ddb104bf2.stex" ]
 
 [params]
 

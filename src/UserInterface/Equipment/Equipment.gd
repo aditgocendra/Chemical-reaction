@@ -6,7 +6,7 @@ onready var itemContainer = $HBoxContainer/ItemEquipment/BackgrundEquip/ItemCont
 onready var labelEquipment = $HBoxContainer/DetailItem/BackgrundDetail/LabelEquipment
 
 var data_game = GameDatabase.load_data()
-var max_item = 10
+var max_item = 6
 
 var _indexes: int = 0
 var equipment_player: Array

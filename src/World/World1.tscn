@@ -6,7 +6,7 @@
 [ext_resource path="res://src/Navigation/Navigation.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/object/ground.png" type="Texture" id=5]
 [ext_resource path="res://src/Portal/Portal.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/World/World2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Platform/PlatformUpDown.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 93.387, 127.042 )
@@ -319,7 +319,7 @@ points = PoolVector2Array( 0, 0, 256, 0, 256, 128, 0, 128 )
 
 [node name="World1" type="Node2D"]
 __meta__ = {
-"_edit_vertical_guides_": [ 1663.94 ]
+"_edit_vertical_guides_": [ 5504.26 ]
 }
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
@@ -339,21 +339,21 @@ __meta__ = {
 [node name="Navigation" parent="NavigationInterface" instance=ExtResource( 4 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1108, 336 )
+position = Vector2( 5016.45, 371 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( 0, -58.5 )
+position = Vector2( 0, -108 )
 current = true
 process_mode = 0
-limit_right = 1664
+limit_right = 5504
 limit_smoothed = true
 smoothing_enabled = true
-smoothing_speed = 10.0
+smoothing_speed = 12.0
 drag_margin_left = 0.0
 drag_margin_right = 0.0
 
 [node name="Ground" type="Sprite" parent="."]
-position = Vector2( 1500.44, 256 )
+position = Vector2( 5340.76, 257.5 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 
@@ -366,8 +366,22 @@ shape = SubResource( 1 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 18 )
 format = 1
-tile_data = PoolIntArray( 458762, 0, 0, 458766, 1, 0, 458770, 2, 0, 458774, 3, 0, 589834, 4, 0, 589838, 5, 0, 589842, 6, 0, 589846, 7, 0, 720906, 8, 0, 720910, 9, 0, 720914, 10, 0, 720918, 11, 0, 851978, 12, 0, 851982, 13, 0, 851986, 14, 0, 851990, 15, 0 )
+tile_data = PoolIntArray( 458762, 0, 0, 458766, 1, 0, 458770, 2, 0, 458774, 3, 0, 458822, 0, 0, 458826, 1, 0, 458830, 2, 0, 458834, 3, 0, 589834, 4, 0, 589838, 5, 0, 589842, 6, 0, 589846, 7, 0, 720906, 8, 0, 720910, 9, 0, 720914, 10, 0, 720918, 11, 0, 851978, 12, 0, 851982, 13, 0, 851986, 14, 0, 851990, 15, 0 )
 
 [node name="Portal" parent="." instance=ExtResource( 6 )]
-position = Vector2( 755.357, 450.635 )
-next_scene = ExtResource( 7 )
+position = Vector2( 776, 450.435 )
+next_scene_path = "res://src/World/World2.tscn"
+
+[node name="MovingPlatform" type="Node2D" parent="."]
+
+[node name="PlatformUpDown" parent="MovingPlatform" instance=ExtResource( 8 )]
+position = Vector2( 4048.78, 515.952 )
+
+[node name="PlatformUpDown2" parent="MovingPlatform" instance=ExtResource( 8 )]
+position = Vector2( 3392.38, 515.952 )
+
+[node name="PlatformUpDown3" parent="MovingPlatform" instance=ExtResource( 8 )]
+position = Vector2( 2733.44, 515.952 )
+
+[node name="PlatformUpDown4" parent="MovingPlatform" instance=ExtResource( 8 )]
+position = Vector2( 2065.91, 515.952 )

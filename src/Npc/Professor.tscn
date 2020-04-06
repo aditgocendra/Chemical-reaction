@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/object/Asset 3.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.1601, 74.3588 )
+extents = Vector2( 32.1601, 192.662 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 82.1833, 76 )
@@ -23,7 +23,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/StaticBody2D"]
 modulate = Color( 0.113725, 0.0666667, 0.952941, 1 )
-position = Vector2( 0, 2.64326 )
+position = Vector2( 0, -114.682 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

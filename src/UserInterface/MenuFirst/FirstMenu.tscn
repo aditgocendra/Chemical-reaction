@@ -56,7 +56,6 @@ __meta__ = {
 [node name="PlayTouchscreen" type="TouchScreenButton" parent="VBoxContainer"]
 normal = ExtResource( 4 )
 script = ExtResource( 5 )
-next_scne_path = "res://src/Laboratory/Laboratory.tscn"
 
 [node name="ResetTouchscreen" type="TouchScreenButton" parent="VBoxContainer"]
 position = Vector2( 0, 66 )

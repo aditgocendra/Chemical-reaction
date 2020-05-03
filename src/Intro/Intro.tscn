@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/logoteam/little256.png" type="Texture" id=1]
 [ext_resource path="res://assets/logoteam/crown512.png" type="Texture" id=2]
 [ext_resource path="res://assets/logoteam/mahkota128.png" type="Texture" id=3]
-[ext_resource path="res://assets/sound/Blop-Mark_DiAngelo-79054334.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sound/Intro.wav" type="AudioStream" id=4]
 [ext_resource path="res://src/Intro/Intro.gd" type="Script" id=5]
 [ext_resource path="res://src/UserInterface/MenuFirst/FirstMenu.tscn" type="PackedScene" id=6]
 
@@ -23,18 +23,18 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("bloop")
+tracks/1/path = NodePath("Intro")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "clips": [ {
-"end_offset": 0.0,
+"end_offset": 1.39,
 "start_offset": 0.0,
 "stream": ExtResource( 4 )
 } ],
-"times": PoolRealArray( 1.5 )
+"times": PoolRealArray( 0.6 )
 }
 
 [node name="Intro" type="Control"]
@@ -92,10 +92,13 @@ margin_right = -145.0
 margin_bottom = 173.0
 texture = ExtResource( 3 )
 expand = true
-
-[node name="bloop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Intro"
 anims/Intro = SubResource( 1 )
+
+[node name="Intro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

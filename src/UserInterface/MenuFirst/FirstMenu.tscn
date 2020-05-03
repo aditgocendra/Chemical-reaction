@@ -4,15 +4,16 @@
 [ext_resource path="res://assets/background/bg_first_background.png" type="Texture" id=2]
 [ext_resource path="res://assets/object/btn/Asset 16.png" type="Texture" id=3]
 [ext_resource path="res://assets/object/btn/Asset 14.png" type="Texture" id=4]
-[ext_resource path="res://src/UserInterface/MenuFirst/PlayTouchscreen.gd" type="Script" id=5]
-[ext_resource path="res://src/UserInterface/MenuFirst/QuitTouchscreen.gd" type="Script" id=6]
+[ext_resource path="res://assets/sound/sound_first_menu.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/label/name_game.png" type="Texture" id=7]
 [ext_resource path="res://assets/object/btn/reset_btn.png" type="Texture" id=8]
 [ext_resource path="res://src/UserInterface/MenuFirst/ResetTouchscreen.gd" type="Script" id=9]
+[ext_resource path="res://src/UserInterface/MenuFirst/FirstMenu.gd" type="Script" id=11]
 
 [node name="FirstMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -55,13 +56,12 @@ __meta__ = {
 
 [node name="PlayTouchscreen" type="TouchScreenButton" parent="VBoxContainer"]
 normal = ExtResource( 4 )
-script = ExtResource( 5 )
 
 [node name="ResetTouchscreen" type="TouchScreenButton" parent="VBoxContainer"]
 position = Vector2( 0, 66 )
 normal = ExtResource( 8 )
 script = ExtResource( 9 )
-next_scene_path = "res://src/Laboratory/Laboratory.tscn"
+next_scene_path = "res://src/Laboratory/Laboratory1.tscn"
 
 [node name="SettingTouchscreen" type="TouchScreenButton" parent="VBoxContainer"]
 position = Vector2( 0, 133 )
@@ -70,7 +70,13 @@ normal = ExtResource( 1 )
 [node name="QuitTouchscreen" type="TouchScreenButton" parent="VBoxContainer"]
 position = Vector2( 0, 200 )
 normal = ExtResource( 3 )
-script = ExtResource( 6 )
-[connection signal="pressed" from="VBoxContainer/PlayTouchscreen" to="VBoxContainer/PlayTouchscreen" method="_on_PlayTouchscreen_pressed"]
+
+[node name="SettingsLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="AudioFirstMenu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+[connection signal="pressed" from="VBoxContainer/PlayTouchscreen" to="." method="_on_PlayTouchscreen_pressed"]
 [connection signal="pressed" from="VBoxContainer/ResetTouchscreen" to="VBoxContainer/ResetTouchscreen" method="_on_ResetTouchscreen_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitTouchscreen" to="VBoxContainer/QuitTouchscreen" method="_on_QuitTouchscreen_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingTouchscreen" to="." method="_on_SettingTouchscreen_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitTouchscreen" to="." method="_on_QuitTouchscreen_pressed"]

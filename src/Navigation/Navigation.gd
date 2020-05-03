@@ -5,7 +5,7 @@ export(String, FILE) var next_scene_path: = ""
 
 onready var mission_interface = $MissionInterface
 onready var scene_tree: SceneTree = get_tree()
-onready var equipment_container = $EquipmentContainer
+onready var item_container = $ItemContainer
 onready var equipment_interface = preload("res://src/UserInterface/Equipment/Equipment.tscn").instance()
 onready var texture_action = $BackgroundTextureAct/EquipmentTexture
 onready var bg_texture_action = $BackgroundTextureAct
@@ -17,9 +17,13 @@ onready var touch_jump = $BotRightContainer/TouchJump
 #end touch---------------------------------------------------
 
 var clickable: = Vector2.ZERO
+var action = false
+
+var index = 0
 
 
 func _ready() -> void:
+# warning-ignore:return_value_discarded
 	GameDatabase.connect("update_texture_equip", self, "update_texture_action")
 	load_action_texture()
 
@@ -28,6 +32,7 @@ func _on_Touch_left_pressed() -> void:
 	if touch_jump.is_pressed():
 		clickable = Vector2(-1.0, -1.0)
 	clickable = Vector2(-1.0,0.0)
+	
 
 
 func _on_Touch_left_released() -> void:
@@ -57,10 +62,6 @@ func _on_TouchJump_released() -> void:
 	clickable = Vector2.ZERO
 	
 
-func get_value():
-	return clickable
-
-
 func _on_Touch_Mission_pressed() -> void:
 	if	mission_interface.is_visible_in_tree():
 		mission_interface.hide()
@@ -80,6 +81,7 @@ func _on_TouchSetting_pressed() -> void:
 
 func _on_TouchBackMenu_pressed() -> void:
 	scene_tree.paused = false
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(next_scene_path)
 
 
@@ -89,17 +91,20 @@ func _on_TouchQuit_pressed() -> void:
 
 
 func _on_TouchEquipment_pressed() -> void:
-	if equipment_container.get_child_count() == 0:
-		equipment_container.add_child(equipment_interface)
-	else: equipment_container.remove_child(equipment_interface)
 	
-
+	if item_container.get_child_count() == 0:
+		item_container.add_child(equipment_interface)
+	else: 
+		var node = item_container.get_child(0)
+		item_container.remove_child(node)
+	
+	
 func load_action_texture():
 	var data = GameDatabase.load_data()
 	var player_use_equip = data["player_use_equip"]["equip_use_name"]
 	if player_use_equip != null:
 		bg_texture_action.show()
-		var texture_load = data["equipment"][player_use_equip].src
+		var texture_load = data["item_inventory"]["equipment"][player_use_equip].src
 		texture_action.texture = load(texture_load)
 	else : 
 		bg_texture_action.hide()
@@ -113,7 +118,45 @@ func update_texture_action():
 	else: bg_texture_action.hide()
 
 
+func _on_TouchInventory_pressed() -> void:
+	if setSoundGame() == false:
+		$AudioOpenBag.playing = false
+	else: 
+		$AudioOpenBag.play()
+		
+	
+	
+	var item_interface = preload("res://src/UserInterface/Inventory/Inventory.tscn").instance()
+	if item_container.get_child_count() == 0:
+		item_container.add_child(item_interface)
+	else:
+		var node = item_container.get_child(0)
+		item_container.remove_child(node)
 
 
+func _on_TouchAction_pressed() -> void:
+	action  = true
 
 
+func _on_TouchAction_released() -> void:
+	action = false
+
+
+func get_value():
+	return clickable
+	
+	
+func get_action():
+	return action
+
+
+func setSoundGame():
+	var data = GameDatabase.load_data()
+	var sound_fx = data["game_setting"]["sound_fx"]
+	
+	if sound_fx.checked == false:
+		return false
+	else:
+		$AudioOpenBag.volume_db = sound_fx.vol
+		return true
+	

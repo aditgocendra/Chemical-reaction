@@ -1,69 +1,149 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=74 format=2]
 
-[ext_resource path="res://assets/player/walk/walk3_0004.png" type="Texture" id=1]
-[ext_resource path="res://assets/player/idle/diam_0001.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/walk_axe/jalankapak_0002.png" type="Texture" id=1]
+[ext_resource path="res://assets/player/walk/jalan_0002.png" type="Texture" id=2]
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=3]
-[ext_resource path="res://assets/player/walk/walk3_0001.png" type="Texture" id=4]
-[ext_resource path="res://assets/player/walk/walk3_0003.png" type="Texture" id=5]
-[ext_resource path="res://assets/player/walk/walk3_0005.png" type="Texture" id=6]
-[ext_resource path="res://assets/player/walk/walk3_0002.png" type="Texture" id=7]
-[ext_resource path="res://assets/player/walk/walk3_0006.png" type="Texture" id=8]
-[ext_resource path="res://assets/player/walk/walk3_0008.png" type="Texture" id=9]
-[ext_resource path="res://assets/player/walk/walk3_0007.png" type="Texture" id=10]
-[ext_resource path="res://assets/player/idle_axe/berhenti dengan kapak2_0001.png" type="Texture" id=11]
-[ext_resource path="res://assets/player/idle_hammer/berhenti dengan palu2_0001.png" type="Texture" id=12]
-[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0001.png" type="Texture" id=13]
-[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0005.png" type="Texture" id=14]
-[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0006.png" type="Texture" id=15]
-[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0007.png" type="Texture" id=16]
-[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0008.png" type="Texture" id=17]
-[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0003.png" type="Texture" id=18]
-[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0004.png" type="Texture" id=19]
-[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0001.png" type="Texture" id=20]
-[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0003.png" type="Texture" id=21]
-[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0004.png" type="Texture" id=22]
-[ext_resource path="res://assets/player/walk_axe/jalan dengan kapak2_0002.png" type="Texture" id=23]
-[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0002.png" type="Texture" id=24]
-[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0005.png" type="Texture" id=25]
-[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0006.png" type="Texture" id=26]
-[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0007.png" type="Texture" id=27]
-[ext_resource path="res://assets/player/walk_hammer/jalan dengan palu2_0008.png" type="Texture" id=28]
+[ext_resource path="res://assets/player/walk_hammer/jalanpalu_0003.png" type="Texture" id=4]
+[ext_resource path="res://assets/player/walk_hammer/jalanpalu_0004.png" type="Texture" id=5]
+[ext_resource path="res://assets/player/walk_hammer/jalanpalu_0005.png" type="Texture" id=6]
+[ext_resource path="res://assets/player/idle_axe/berhentikapak_0001.png" type="Texture" id=7]
+[ext_resource path="res://assets/player/walk_hammer/jalanpalu_0001.png" type="Texture" id=8]
+[ext_resource path="res://assets/player/walk/jalan_0001.png" type="Texture" id=9]
+[ext_resource path="res://assets/player/idle_hammer/berhentipalu_0001.png" type="Texture" id=10]
+[ext_resource path="res://assets/player/idle/berhenti_0001.png" type="Texture" id=11]
+[ext_resource path="res://assets/player/walk_axe/jalankapak_0001.png" type="Texture" id=12]
+[ext_resource path="res://assets/player/walk/jalan_0003.png" type="Texture" id=13]
+[ext_resource path="res://assets/player/walk/jalan_0004.png" type="Texture" id=14]
+[ext_resource path="res://assets/player/walk/jalan_0005.png" type="Texture" id=15]
+[ext_resource path="res://assets/player/walk/jalan_0006.png" type="Texture" id=16]
+[ext_resource path="res://assets/player/walk/jalan_0007.png" type="Texture" id=17]
+[ext_resource path="res://assets/player/walk/jalan_0008.png" type="Texture" id=18]
+[ext_resource path="res://assets/player/walk_hammer/jalanpalu_0002.png" type="Texture" id=19]
+[ext_resource path="res://assets/player/walk_axe/jalankapak_0003.png" type="Texture" id=20]
+[ext_resource path="res://assets/player/walk_axe/jalankapak_0005.png" type="Texture" id=21]
+[ext_resource path="res://assets/player/walk_axe/jalankapak_0004.png" type="Texture" id=22]
+[ext_resource path="res://assets/player/walk_axe/jalankapak_0007.png" type="Texture" id=23]
+[ext_resource path="res://assets/player/walk_axe/jalankapak_0006.png" type="Texture" id=24]
+[ext_resource path="res://assets/player/walk_axe/jalankapak_0008.png" type="Texture" id=25]
+[ext_resource path="res://assets/player/walk_hammer/jalanpalu_0007.png" type="Texture" id=26]
+[ext_resource path="res://assets/player/walk_hammer/jalanpalu_0006.png" type="Texture" id=27]
+[ext_resource path="res://assets/player/walk_hammer/jalanpalu_0008.png" type="Texture" id=28]
+[ext_resource path="res://assets/player/action_hammer/PALU ANIMATION_0004.png" type="Texture" id=29]
+[ext_resource path="res://assets/player/action_hammer/PALU ANIMATION_0002.png" type="Texture" id=30]
+[ext_resource path="res://assets/player/action_hammer/PALU ANIMATION_0001.png" type="Texture" id=31]
+[ext_resource path="res://assets/player/action_hammer/PALU ANIMATION_0005.png" type="Texture" id=32]
+[ext_resource path="res://assets/player/action_hammer/PALU ANIMATION_0003.png" type="Texture" id=33]
+[ext_resource path="res://assets/player/action_hammer/PALU ANIMATION_0007.png" type="Texture" id=34]
+[ext_resource path="res://assets/player/action_hammer/PALU ANIMATION_0008.png" type="Texture" id=35]
+[ext_resource path="res://assets/player/action_hammer/PALU ANIMATION_0006.png" type="Texture" id=36]
+[ext_resource path="res://assets/player/action_axe/KAPAK ANIMATION_0001.png" type="Texture" id=37]
+[ext_resource path="res://assets/player/action_axe/KAPAK ANIMATION_0004.png" type="Texture" id=38]
+[ext_resource path="res://assets/player/action_axe/KAPAK ANIMATION_0005.png" type="Texture" id=39]
+[ext_resource path="res://assets/player/action_axe/KAPAK ANIMATION_0006.png" type="Texture" id=40]
+[ext_resource path="res://assets/player/action_axe/KAPAK ANIMATION_0003.png" type="Texture" id=41]
+[ext_resource path="res://assets/player/action_axe/KAPAK ANIMATION_0007.png" type="Texture" id=42]
+[ext_resource path="res://assets/player/action_axe/KAPAK ANIMATION_0008.png" type="Texture" id=43]
+[ext_resource path="res://assets/player/action_axe/KAPAK ANIMATION_0002.png" type="Texture" id=44]
+[ext_resource path="res://assets/player/idle/berhenti_0003.png" type="Texture" id=45]
+[ext_resource path="res://assets/player/idle/berhenti_0002.png" type="Texture" id=46]
+[ext_resource path="res://assets/player/idle/berhenti_0006.png" type="Texture" id=47]
+[ext_resource path="res://assets/player/idle_axe/berhentikapak_0002.png" type="Texture" id=48]
+[ext_resource path="res://assets/player/idle_axe/berhentikapak_0006.png" type="Texture" id=49]
+[ext_resource path="res://assets/player/idle_axe/berhentikapak_0003.png" type="Texture" id=50]
+[ext_resource path="res://assets/player/idle_axe/berhentikapak_0004.png" type="Texture" id=51]
+[ext_resource path="res://assets/player/idle/berhenti_0004.png" type="Texture" id=52]
+[ext_resource path="res://assets/player/idle/berhenti_0008.png" type="Texture" id=53]
+[ext_resource path="res://assets/player/idle_hammer/berhentipalu_0002.png" type="Texture" id=54]
+[ext_resource path="res://assets/player/idle_axe/berhentikapak_0005.png" type="Texture" id=55]
+[ext_resource path="res://assets/player/idle/berhenti_0005.png" type="Texture" id=56]
+[ext_resource path="res://assets/player/idle/berhenti_0007.png" type="Texture" id=57]
+[ext_resource path="res://assets/player/idle_hammer/berhentipalu_0004.png" type="Texture" id=58]
+[ext_resource path="res://assets/player/idle_hammer/berhentipalu_0003.png" type="Texture" id=59]
+[ext_resource path="res://assets/player/idle_axe/berhentikapak_0007.png" type="Texture" id=60]
+[ext_resource path="res://assets/player/idle_axe/berhentikapak_0008.png" type="Texture" id=61]
+[ext_resource path="res://assets/player/idle_hammer/berhentipalu_0007.png" type="Texture" id=62]
+[ext_resource path="res://assets/player/idle_hammer/berhentipalu_0005.png" type="Texture" id=63]
+[ext_resource path="res://assets/player/idle_hammer/berhentipalu_0006.png" type="Texture" id=64]
+[ext_resource path="res://assets/player/idle_hammer/berhentipalu_0008.png" type="Texture" id=65]
+[ext_resource path="res://assets/font/letter_gothic24.tres" type="DynamicFont" id=66]
+[ext_resource path="res://assets/sound/player_hit_rock.wav" type="AudioStream" id=67]
+[ext_resource path="res://assets/sound/player_walk_3.wav" type="AudioStream" id=68]
+[ext_resource path="res://assets/sound/player_jump.wav" type="AudioStream" id=69]
+[ext_resource path="res://assets/sound/player_hit_wood.wav" type="AudioStream" id=70]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
+"frames": [ ExtResource( 37 ), ExtResource( 44 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 43 ) ],
+"loop": false,
+"name": "ActionAxe",
+"speed": 10.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 55 ), ExtResource( 49 ), ExtResource( 60 ), ExtResource( 61 ) ],
 "loop": true,
 "name": "IdleAxe",
-"speed": 5.0
+"speed": 8.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 24 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 54 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 62 ), ExtResource( 65 ) ],
+"loop": true,
+"name": "IdleHammer",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 46 ), ExtResource( 45 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 47 ), ExtResource( 57 ), ExtResource( 53 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 19 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 28 ) ],
 "loop": true,
 "name": "walkHammer",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "IdleHammer",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "walkAxe",
+"frames": [ ExtResource( 31 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 32 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": false,
+"name": "ActionHammer",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 1 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 25 ) ],
 "loop": true,
-"name": "walk",
+"name": "walkAxe",
 "speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 34, 73.1513 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "get_item"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("LabelItem:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -112, -90 ), Vector2( -112, -280 ), Vector2( -112, -280 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LabelItem:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.00784314, 0.00784314, 0.00784314, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.00784314, 0.00784314, 0.00784314, 0 ) ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -77 )
@@ -73,6 +153,7 @@ script = ExtResource( 3 )
 [node name="PlayerAnimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Idle"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4 )
@@ -83,3 +164,48 @@ position = Vector2( 0, 77 )
 enabled = true
 cast_to = Vector2( 0, 10 )
 collision_mask = 8
+
+[node name="TimerAnimation" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
+
+[node name="PlayerAction" type="Area2D" parent="."]
+position = Vector2( -47, -17 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerAction"]
+position = Vector2( -270, 15 )
+scale = Vector2( 40.4618, 8.04 )
+polygon = PoolVector2Array( 5.46194, 5.59701, 10.2566, 5.59701, 10.2072, -3.73134, 5.41251, -3.9801 )
+disabled = true
+
+[node name="LabelItem" type="Label" parent="."]
+modulate = Color( 0.00784314, 0.00784314, 0.00784314, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = -90.0
+margin_right = 112.0
+margin_bottom = -65.0
+custom_fonts/font = ExtResource( 66 )
+text = "1x You Get Item"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationItem" type="AnimationPlayer" parent="."]
+anims/get_item = SubResource( 3 )
+
+[node name="AudioHitRock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 67 )
+
+[node name="AudioHitWood" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 70 )
+
+[node name="AudioMovement" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 68 )
+
+[node name="AudioJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 69 )
+[connection signal="area_entered" from="PlayerAction" to="." method="_on_PlayerAction_area_entered"]

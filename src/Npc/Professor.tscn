@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/npc/npc ProfesorLow.png" type="Texture" id=1]
+[ext_resource path="res://assets/object/item/baloontext.png" type="Texture" id=1]
 [ext_resource path="res://src/Npc/Professor.gd" type="Script" id=2]
-[ext_resource path="res://assets/object/Asset 3.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.1601, 192.662 )
@@ -15,7 +14,6 @@ position = Vector2( 0, -77 )
 script = ExtResource( 2 )
 
 [node name="NPC" type="Sprite" parent="."]
-texture = ExtResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="NPC"]
 collision_layer = 4
@@ -31,9 +29,9 @@ position = Vector2( 0, 1.02337 )
 shape = SubResource( 2 )
 
 [node name="TouchActionNPC" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2( -40, -16.7511 )
-normal = ExtResource( 3 )
+position = Vector2( -23.3982, -30.3032 )
+scale = Vector2( 0.1, 0.1 )
+normal = ExtResource( 1 )
 [connection signal="body_entered" from="." to="." method="_on_Professor_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Professor_body_exited"]
 [connection signal="pressed" from="TouchActionNPC" to="." method="_on_TouchActionNPC_pressed"]

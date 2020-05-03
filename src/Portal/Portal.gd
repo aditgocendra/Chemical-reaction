@@ -11,7 +11,9 @@ func _get_configuration_warning() -> String:
 func teleport() -> void:
 	anim_player.play("fade_out")
 	yield(anim_player, "animation_finished")
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(next_scene_path)
+	
 	
 func update_sceneDB():
 	var player_init = GameDatabase.load_data()
@@ -22,5 +24,7 @@ func update_sceneDB():
 
 
 func _on_Node2D_body_entered(body: Node) -> void:
-	teleport()
-	update_sceneDB()
+	if body.name == "Player":
+		teleport()
+		update_sceneDB()
+	

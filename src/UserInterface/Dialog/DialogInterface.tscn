@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/background/bg_dialog.png" type="Texture" id=1]
 [ext_resource path="res://assets/font/letter_gothic.tres" type="DynamicFont" id=2]
@@ -17,6 +17,12 @@ extents = Vector2( 32, 16 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+[sub_resource type="RectangleShape2D" id=6]
 
 [node name="DialogInterface" type="Control"]
 pause_mode = 2
@@ -79,16 +85,17 @@ margin_left = -175.5
 margin_top = -19.0
 margin_right = -25.5
 margin_bottom = 15.0
+size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TouchTakeButton" type="TouchScreenButton" parent="BackgroundDialog/TakeOrCancelDialog"]
-position = Vector2( 85, 0 )
 normal = ExtResource( 4 )
 shape = SubResource( 2 )
 
 [node name="TouchCancelButton" type="TouchScreenButton" parent="BackgroundDialog/TakeOrCancelDialog"]
+position = Vector2( 85, 0 )
 normal = ExtResource( 5 )
 shape = SubResource( 3 )
 
@@ -99,6 +106,9 @@ margin_right = 295.5
 margin_bottom = 14.0
 texture = ExtResource( 6 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NameLabel" type="Label" parent="BackgroundDialog/BackgroundName"]
 anchor_left = 0.5
@@ -111,6 +121,116 @@ margin_right = 78.5
 margin_bottom = 9.5
 custom_fonts/font = ExtResource( 2 )
 text = "Prof Nurdin RG"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionContainer" type="VBoxContainer" parent="BackgroundDialog"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -355.0
+margin_top = 27.0
+margin_right = 357.0
+margin_bottom = 109.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestLabel" type="Label" parent="BackgroundDialog/QuestionContainer"]
+margin_right = 712.0
+margin_bottom = 24.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Pertanyaan"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnswerLabel1" type="Label" parent="BackgroundDialog/QuestionContainer"]
+margin_top = 28.0
+margin_right = 712.0
+margin_bottom = 52.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Jawaban"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchTrueAnswer" type="TouchScreenButton" parent="BackgroundDialog/QuestionContainer/AnswerLabel1"]
+scale = Vector2( 14.9806, 0.893589 )
+shape = SubResource( 4 )
+
+[node name="AnswerLabel2" type="Label" parent="BackgroundDialog/QuestionContainer"]
+margin_top = 56.0
+margin_right = 712.0
+margin_bottom = 82.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Jawaban"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchFalseAnswer2" type="TouchScreenButton" parent="BackgroundDialog/QuestionContainer/AnswerLabel2"]
+scale = Vector2( 14.9558, 0.984345 )
+shape = SubResource( 5 )
+
+[node name="CraftingContainerChoice" type="VBoxContainer" parent="BackgroundDialog"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -355.0
+margin_top = 33.0
+margin_right = 357.0
+margin_bottom = 115.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelChoice1" type="Label" parent="BackgroundDialog/CraftingContainerChoice"]
+margin_right = 712.0
+margin_bottom = 24.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Pembakaran kayu"
+valign = 1
+
+[node name="TouchChoice1" type="TouchScreenButton" parent="BackgroundDialog/CraftingContainerChoice/LabelChoice1"]
+scale = Vector2( 7.60512, 1.0427 )
+shape = SubResource( 6 )
+
+[node name="LabelChoice2" type="Label" parent="BackgroundDialog/CraftingContainerChoice"]
+margin_top = 28.0
+margin_right = 712.0
+margin_bottom = 52.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Besi berkarat"
+valign = 1
+
+[node name="TouchChoice2" type="TouchScreenButton" parent="BackgroundDialog/CraftingContainerChoice/LabelChoice2"]
+scale = Vector2( 7.60512, 1.0427 )
+shape = SubResource( 6 )
+
+[node name="LabelChoice3" type="Label" parent="BackgroundDialog/CraftingContainerChoice"]
+margin_top = 56.0
+margin_right = 712.0
+margin_bottom = 82.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Proses fotosintesis"
+valign = 1
+
+[node name="TouchChoice3" type="TouchScreenButton" parent="BackgroundDialog/CraftingContainerChoice/LabelChoice3"]
+scale = Vector2( 7.60512, 1.0427 )
+shape = SubResource( 6 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
@@ -119,4 +239,8 @@ autostart = true
 [connection signal="pressed" from="BackgroundDialog/TouchFinishDialog" to="." method="_on_TouchFinishDialog_pressed"]
 [connection signal="pressed" from="BackgroundDialog/TakeOrCancelDialog/TouchTakeButton" to="." method="_on_TouchTakeButton_pressed"]
 [connection signal="pressed" from="BackgroundDialog/TakeOrCancelDialog/TouchCancelButton" to="." method="_on_TouchCancelButton_pressed"]
+[connection signal="pressed" from="BackgroundDialog/QuestionContainer/AnswerLabel1/TouchTrueAnswer" to="." method="_on_TouchTrueAnswer_pressed"]
+[connection signal="pressed" from="BackgroundDialog/CraftingContainerChoice/LabelChoice1/TouchChoice1" to="." method="_on_TouchChoice1_pressed"]
+[connection signal="pressed" from="BackgroundDialog/CraftingContainerChoice/LabelChoice2/TouchChoice2" to="." method="_on_TouchChoice2_pressed"]
+[connection signal="pressed" from="BackgroundDialog/CraftingContainerChoice/LabelChoice3/TouchChoice3" to="." method="_on_TouchChoice3_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

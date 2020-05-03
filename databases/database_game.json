@@ -1,1 +1,174 @@
-{"equipment":{"Axe":{"description":"You can use this to cut and cut wood","equipment_name":"Axe","src":"res://assets/object/item/kapak.png"},"Hammer":{"description":"You can use this to crush anything other than wood","equipment_name":"Hammer","src":"res://assets/object/item/palu.png"}},"mission":{"mission1":{"001":{"material_name":"rock","value":"5"},"002":{"material_name":"wood","value":"8"}}},"player_init":{"scene":"res://src/World/World1.tscn"},"player_mission":{"mission":"mission1"},"player_use_equip":{"equip_use_name":null},"talking":{"dialog_prof_nurdin":{"001":{"dialog":"Hi....... I am a professor in this laboratory","npc_name":"nurdin"},"002":{"dialog":"Finally you come too, I have been waiting for your arrival","npc_name":"nurdin"},"003":{"dialog":"I need your help to get the chemicals out there","npc_name":"nurdin"},"004":{"dialog":"I'm doing research on a reaction and need some chemicals out there","npc_name":"nurdin"},"005":{"dialog":"if you are willing?","npc_name":"nurdin"}},"end_dialog":{"001":{"dialog":"Why are you still here, and not doing your job? I need it immediately"}}}}
+{
+  "game_setting": {
+    "sound_fx": {
+      "checked": false,
+      "vol": -6
+    },
+    "sound_music": {
+      "checked": false,
+      "vol": 0
+    }
+  },
+  "item_inventory": {
+    "equipment": {
+      "Axe": {
+        "amount": null,
+        "description": "You can use this to cut and cut wood",
+        "item_name": "Axe",
+        "src": "res://assets/object/item/kapak.png",
+        "type_item": "equipment"
+      },
+      "Hammer": {
+        "amount": null,
+        "description": "You can use this to crush anything other than wood",
+        "item_name": "Hammer",
+        "src": "res://assets/object/item/palu.png",
+        "type_item": "equipment"
+      }
+    },
+    "item_material": {
+      "big_wood": {
+        "amount": 3,
+        "description": "Diambil dari dunia yang indah kamu dapat menggunakan nya",
+        "item_name": "Big wood",
+        "src": "res://assets/object/item/kayuBesar.png",
+        "type_item": "item_material"
+      },
+      "broken_stone": {
+        "amount": 6,
+        "description": "Kamu bisa menggunakan ini untuk membuat sesuatu",
+        "item_name": "Broken stone",
+        "src": "res://assets/object/item/pecahanBatu.png",
+        "type_item": "item_material"
+      },
+      "small_wood": {
+        "amount": 2,
+        "description": "Diambil dari pepohonan yang kecil bisa dijadikan sesuatu",
+        "item_name": "Small wood",
+        "src": "res://assets/object/item/kayuKecil.png",
+        "type_item": "item_material"
+      }
+    }
+  },
+  "mission": {
+    "mission1": {
+      "001": {
+        "material_name": "rock",
+        "value": "5"
+      },
+      "002": {
+        "material_name": "wood",
+        "value": "8"
+      }
+    },
+    "mission2": {
+      "001": {
+        "material_name": "wood",
+        "value": "5"
+      },
+      "002": {
+        "material_name": "crystal",
+        "value": "8"
+      }
+    }
+  },
+  "player_init": {
+    "scene": "res://src/World/World1.tscn"
+  },
+  "player_mission": {
+    "mission": null
+  },
+  "player_use_equip": {
+    "equip_use_name": null
+  },
+  "question": {
+    "Besi berkarat": {
+      "choice_answer1": "Indoterm",
+      "choice_answer2": "Endoterm",
+      "question": "Reaksi kimia yang menyerap panas di sekitarnya dinamakan reaksi...?"
+    },
+    "Pembakaran kayu": {
+      "choice_answer1": "pembakaran bensin pada kendaraan bermotor",
+      "choice_answer2": "garam yg larut di air",
+      "question": "Manakah yg merupakan contoh reaksi eksoterm...?"
+    },
+    "Proses fotosintesis": {
+      "choice_answer1": "Uap",
+      "choice_answer2": "Gas",
+      "question": "Ketika kamu melarutkan tablet vitamin berkalsium tinggi ke dalam segelas air, kamu akan melihat gelembung-gelembung gas muncul dari dalam larutan. Hal ini membuktikan bahwa dalam peristiwa reaksi kimia dapat menimbulkan..?"
+    }
+  },
+  "talking": {
+    "dialog_crafter": {
+      "001": {
+        "dialog": "Hello .... I'm a material maker here",
+        "npc_name": "Holdin"
+      },
+      "002": {
+        "dialog": "Reaksi kimia akan selalu disertai dengan energi. baik energi yang berupa panas, listrik atau pun cahaya.",
+        "npc_name": "Holdin"
+      },
+      "003": {
+        "dialog": "Reaksi kimia yang menghasilkan energi biasanya disebut dengan eksoterm sementara reaksi yang menyerap energi biasa disebut dengan reaksi endoterm.",
+        "npc_name": "Holdin"
+      },
+      "004": {
+        "dialog": "Do you want to make something?",
+        "npc_name": "Holdin"
+      },
+      "005": {
+        "dialog": "Sebelum kamu meminta ku membuatkan mu sesuatu kamu harus menjawab pertanyaan ku lebih dulu, apakah kamu bersedia?",
+        "npc_name": "Holdin"
+      }
+    },
+    "dialog_prof_nurdin": {
+      "001": {
+        "dialog": "Hi....... I am a professor in this laboratory",
+        "npc_name": "nurdin"
+      },
+      "002": {
+        "dialog": "Finally you come too, I have been waiting for your arrival",
+        "npc_name": "nurdin"
+      },
+      "003": {
+        "dialog": "I need your help to get the chemicals out there",
+        "npc_name": "nurdin"
+      },
+      "004": {
+        "dialog": "I'm doing research on a reaction and need some chemicals out there",
+        "npc_name": "nurdin"
+      },
+      "005": {
+        "dialog": "if you are willing?",
+        "npc_name": "nurdin"
+      }
+    },
+    "dialog_prof_yadi": {
+      "001": {
+        "dialog": "Hello .... introduce my name prof Yadi Subarjo I am a professor in this laboratory",
+        "npc_name": "yadi"
+      },
+      "002": {
+        "dialog": "Are you willing to accept assignments from me..?",
+        "npc_name": "yadi"
+      },
+      "003": {
+        "dialog": "Alright though this task is fairly difficult but I'm sure you can complete it quickly",
+        "npc_name": "yadi"
+      },
+      "004": {
+        "dialog": "I need an ingredient out there that I can't do alone",
+        "npc_name": "yadi"
+      },
+      "005": {
+        "dialog": "Are you ready ?",
+        "npc_name": "yadi"
+      }
+    },
+    "end_dialog": {
+      "001": {
+        "dialog": "Why are you still here, and not doing your job? I need it immediately"
+      }
+    }
+  }
+}

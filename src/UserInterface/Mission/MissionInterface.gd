@@ -14,6 +14,7 @@ var index: int
 
 
 func _ready() -> void:
+# warning-ignore:return_value_discarded
 	GameDatabase.connect("updated_mission", self, "load_update_mission")
 	get_user_mission()
 	set_label_mission()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sound_endgame_credits.ogg-a1cb70ea1572a1aee8913c1a090d1a02.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/sound_endgame_credits.ogg"
+dest_files=[ "res://.import/sound_endgame_credits.ogg-a1cb70ea1572a1aee8913c1a090d1a02.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

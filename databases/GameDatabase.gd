@@ -13,13 +13,39 @@ var default_data = {
 		"material_name": "wood",
 		"value": "8"
 	  }
+	}, "mission2": {
+	  "001": {
+		"material_name": "wood",
+		"value": "5"
+	  },
+	  "002": {
+		"material_name": "crystal",
+		"value": "8"
+	  }
+	}
+  },
+  "question": {
+	"Besi berkarat": {
+	  "choice_answer1": "Indoterm",
+	  "choice_answer2": "Endoterm",
+	  "question": "Reaksi kimia yang menyerap panas di sekitarnya dinamakan reaksi...?"
+	},
+	"Pembakaran kayu": {
+	  "choice_answer1": "pembakaran bensin pada kendaraan bermotor",
+	  "choice_answer2": "garam yg larut di air",
+	  "question": "Manakah yg merupakan contoh reaksi eksoterm...?"
+	},
+	"Proses fotosintesis": {
+	  "choice_answer1": "Uap",
+	  "choice_answer2": "Gas",
+	  "question": "Ketika kamu melarutkan tablet vitamin berkalsium tinggi ke dalam segelas air, kamu akan melihat gelembung-gelembung gas muncul dari dalam larutan. Hal ini membuktikan bahwa dalam peristiwa reaksi kimia dapat menimbulkan..?"
 	}
   },
   "player_mission": {
 	"mission": null
   },
   "player_init": {
-	"scene":"res://src/Laboratory/Laboratory.tscn"
+	"scene":"res://src/Laboratory/Laboratory1.tscn"
   },
   "talking": {
 	"dialog_prof_nurdin": {
@@ -44,35 +70,123 @@ var default_data = {
 		"npc_name": "nurdin"
 	  }
 	},
+	"dialog_prof_yadi": {
+	  "001": {
+		"dialog": "Hello .... introduce my name prof Yadi Subarjo I am a professor in this laboratory",
+		"npc_name": "yadi"
+	  },
+	  "002": {
+		"dialog": "Are you willing to accept assignments from me..?",
+		"npc_name": "yadi"
+	  },
+	  "003": {
+		"dialog": "Alright though this task is fairly difficult but I'm sure you can complete it quickly",
+		"npc_name": "yadi"
+	  },
+	  "004": {
+		"dialog": "I need an ingredient out there that I can't do alone",
+		"npc_name": "yadi"
+	  },
+	  "005": {
+		"dialog": "Are you ready ?",
+		"npc_name": "yadi"
+	  }
+	},
+	  "dialog_crafter": {
+	  "001": {
+		"dialog": "Hello .... I'm a material maker here",
+		"npc_name": "Holdin"
+	  },
+	  "002": {
+		"dialog": "Reaksi kimia akan selalu disertai dengan energi. baik energi yang berupa panas, listrik atau pun cahaya.",
+		"npc_name": "Holdin"
+	  },
+	  "003": {
+		"dialog": "Reaksi kimia yang menghasilkan energi biasanya disebut dengan eksoterm sementara reaksi yang menyerap energi biasa disebut dengan reaksi endoterm.",
+		"npc_name": "Holdin"
+	  },
+	  "004": {
+		"dialog": "Do you want to make something?",
+		"npc_name": "Holdin"
+	  },
+	  "005": {
+		"dialog": "Sebelum kamu meminta ku membuatkan mu sesuatu kamu harus menjawab pertanyaan ku lebih dulu, apakah kamu bersedia?",
+		"npc_name": "Holdin"
+	  }
+	},
 	"end_dialog": {
 	  "001": {
 		"dialog": "Why are you still here, and not doing your job? I need it immediately"
 	  }
 	}
   },
-  "equipment":{
-		 "Axe":{
-		  "equipment_name":"Axe", "src":"res://assets/object/item/kapak.png", "description":"You can use this to cut and cut wood"
-		},
-		"Hammer":{
-		  "equipment_name":"Hammer", "src":"res://assets/object/item/palu.png", "description":"You can use this to crush anything other than wood"
-		}
+  "item_inventory": {
+	"equipment": {
+	  "Axe": {
+		"amount": null,
+		"description": "You can use this to cut and cut wood",
+		"item_name": "Axe",
+		"src": "res://assets/object/item/kapak.png",
+		"type_item": "equipment"
+	  },
+	  "Hammer": {
+		"amount": null,
+		"description": "You can use this to crush anything other than wood",
+		"item_name": "Hammer",
+		"src": "res://assets/object/item/palu.png",
+		"type_item": "equipment"
+	  }
+	},
+	"item_material": {
+	  "broken_stone": {
+		"amount": 0,
+		"description": "Kamu bisa menggunakan ini untuk membuat sesuatu",
+		"item_name": "Broken stone",
+		"src": "res://assets/object/item/pecahanBatu.png",
+		"type_item": "item_material"
+	  },
+	  "big_wood": {
+		"amount": 0,
+		"description": "Diambil dari dunia yang indah kamu dapat menggunakan nya",
+		"item_name": "Big wood",
+		"src": "res://assets/object/item/kayuBesar.png",
+		"type_item": "item_material"
+	  },
+	  "small_wood": {
+		"amount": 0,
+		"description": "Diambil dari pepohonan yang kecil bisa dijadikan sesuatu",
+		"item_name": "Small wood",
+		"src": "res://assets/object/item/kayuKecil.png",
+		"type_item": "item_material"
+	  }
+	}
   },
   "player_use_equip":{
 		"equip_use_name":null
+  },
+  "game_setting": {
+	"sound_fx": {
+	  "checked": true,
+	  "vol": 0
+	},
+	"sound_music": {
+	  "checked": true,
+	  "vol": 0
+	}
   }
 }
 
 signal updated_mission
 signal update_detail
 signal update_texture_equip
+signal update_npc
+
 
 var json_data setget update_data
-
+var npc_name setget update_npc_name
 
 var new_item_data setget update_name_item
 var item_data_show
-
 
 var equip_texture setget update_texture
 var path_texture
@@ -81,10 +195,8 @@ var path_texture
 var _file 
 
 func _ready() -> void:
-
-	print(DB_dialog_path)
 	load_data()
-	
+
 
 func load_data():
 	_file = File.new()
@@ -108,18 +220,23 @@ func save_data(new_data):
 	_file.close()
 	
 	
-func update_data(json_data):
-	json_data = load_data()
+func update_data(new_json_data):
+	json_data = new_json_data
 	emit_signal("updated_mission")
 	
 	
 
-func update_name_item(new_item_data):
-	item_data_show =  new_item_data
+func update_name_item(item_data):
+	item_data_show =  item_data
 	emit_signal("update_detail")
 
 
-func update_texture(equip_texture):
-	path_texture = equip_texture
+func update_texture(equip_txtr):
+	path_texture = equip_txtr
 	emit_signal("update_texture_equip")
+
+
+func update_npc_name(nameNPC):
+	npc_name = nameNPC
+	emit_signal("update_npc")
 

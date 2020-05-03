@@ -1,0 +1,164 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/font/letter_gothic.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/font/letter_gothic24.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/UserInterface/Setting/SoundSettings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/object/btn/btn_logo_exit.png" type="Texture" id=4]
+[ext_resource path="res://src/UserInterface/Setting/Settings.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.105882, 0.101961, 0.105882, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.392157, 0.376471, 0.376471, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.392157, 0.376471, 0.376471, 1 )
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.392157, 0.376471, 0.376471, 1 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeaderLabel" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -49.0
+margin_top = 15.0
+margin_right = 49.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 2 )
+text = "Setting"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 34.0
+margin_top = -160.0
+margin_right = 134.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 80, 320 )
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 40 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+text = "Sound"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="Panel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 157.0
+margin_top = -160.0
+margin_right = 162.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 5, 320 )
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ApplyButton" type="Button" parent="Panel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -97.0
+margin_top = -59.0
+margin_right = -17.0
+margin_bottom = -19.0
+custom_fonts/font = ExtResource( 1 )
+text = "Apply"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchApply" type="TouchScreenButton" parent="Panel/ApplyButton"]
+scale = Vector2( 3.98463, 2.01811 )
+shape = SubResource( 4 )
+
+[node name="TextureExit" type="TextureRect" parent="Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -47.0
+margin_top = 15.0
+margin_right = -14.0
+margin_bottom = 48.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchExit" type="TouchScreenButton" parent="Panel/TextureExit"]
+scale = Vector2( 1.61791, 1.66738 )
+shape = SubResource( 5 )
+
+[node name="MainSettings" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -238.0
+margin_top = 80.0
+margin_right = 242.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 480, 190 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundSettings" parent="MainSettings" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 480.0
+margin_bottom = 190.0
+[connection signal="pressed" from="Panel/ApplyButton/TouchApply" to="." method="_on_TouchApply_pressed"]
+[connection signal="pressed" from="Panel/TextureExit/TouchExit" to="." method="_on_TouchExit_pressed"]

@@ -18,7 +18,7 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 
 [node name="DetailItem" type="VBoxContainer"]
 margin_right = 164.0
@@ -123,7 +123,7 @@ align = 1
 [node name="TouchUse" type="TouchScreenButton" parent="BackgrundDetail/BackgroundUse"]
 show_behind_parent = true
 scale = Vector2( 6.96543, 0.952209 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="BackgroundNotUse" type="Panel" parent="BackgrundDetail"]
 visible = false
@@ -155,6 +155,6 @@ align = 1
 [node name="TouchNotUse" type="TouchScreenButton" parent="BackgrundDetail/BackgroundNotUse"]
 show_behind_parent = true
 scale = Vector2( 6.96543, 0.952209 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 [connection signal="pressed" from="BackgrundDetail/BackgroundUse/TouchUse" to="." method="_on_TouchUse_pressed"]
 [connection signal="pressed" from="BackgrundDetail/BackgroundNotUse/TouchNotUse" to="." method="_on_TouchNotUse_pressed"]

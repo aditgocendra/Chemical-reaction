@@ -6,6 +6,7 @@ func _ready() -> void:
 	var sound_music = data["game_setting"]["sound_music"]
 	
 	if sound_music.checked == false:
+
 		$SoundtrackWorld.playing = false
 	else:
 		$SoundtrackWorld.volume_db = sound_music.vol

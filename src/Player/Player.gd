@@ -21,6 +21,7 @@ var animation
 # warning-ignore:unused_argument
 func _physics_process(delta: float) -> void:
 	var action_player = direction.get_value()
+	print(action_player)
 	action_equip = direction.get_action()
 
 	velocity = calculate_movement(velocity, action_player)
@@ -32,11 +33,19 @@ func _physics_process(delta: float) -> void:
 		if action_equip:
 			timer_action_anim.start()
 			area_action.set_disabled(false)
+			action_player = Vector2(0.0, 0.0)
 		else: area_action.set_disabled(true)  
 		$PlayerAnimation.play(animation)
-		
+	
 	var is_on_platform = platformer_detector.is_colliding()
 	var snap_vector = Vector2.DOWN * 20.0 if action_player.y == 0.0 else Vector2.ZERO
+	
+	
+	if $PlayerAnimation.animation == "ActionHammer" and $PlayerAnimation.is_playing():
+		velocity = Vector2.ZERO
+	elif $PlayerAnimation.animation == "ActionAxe" and $PlayerAnimation.is_playing():
+		velocity = Vector2.ZERO
+	
 	
 	velocity = move_and_slide_with_snap(
 		velocity, snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false

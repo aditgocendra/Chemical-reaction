@@ -25,6 +25,8 @@ var index = 0
 func _ready() -> void:
 # warning-ignore:return_value_discarded
 	GameDatabase.connect("update_texture_equip", self, "update_texture_action")
+# warning-ignore:return_value_discarded
+	GameDatabase.connect("update_crafting", self, "update_notif")
 	load_action_texture()
 
 
@@ -91,7 +93,6 @@ func _on_TouchQuit_pressed() -> void:
 
 
 func _on_TouchEquipment_pressed() -> void:
-	
 	if item_container.get_child_count() == 0:
 		item_container.add_child(equipment_interface)
 	else: 
@@ -124,14 +125,15 @@ func _on_TouchInventory_pressed() -> void:
 	else: 
 		$AudioOpenBag.play()
 		
-	
-	
 	var item_interface = preload("res://src/UserInterface/Inventory/Inventory.tscn").instance()
 	if item_container.get_child_count() == 0:
 		item_container.add_child(item_interface)
 	else:
 		var node = item_container.get_child(0)
 		item_container.remove_child(node)
+	
+	if $TopRightContainer2/Notif/NotifTexture.visible == true:
+		$TopRightContainer2/Notif/NotifTexture.hide()
 
 
 func _on_TouchAction_pressed() -> void:
@@ -159,4 +161,24 @@ func setSoundGame():
 	else:
 		$AudioOpenBag.volume_db = sound_fx.vol
 		return true
-	
+		
+		
+func update_notif():
+	$TopRightContainer2/Notif/NotifTexture.show() 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

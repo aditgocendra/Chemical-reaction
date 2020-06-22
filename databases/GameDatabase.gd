@@ -3,26 +3,122 @@ extends Node
 var DB_dialog_path =  "res://databases/database_game.json"
 
 var default_data = {
+  "game_setting": {
+	"sound_fx": {
+	  "checked": true,
+	  "vol": 0
+	},
+	"sound_music": {
+	  "checked": true,
+	  "vol": 0
+	}
+  },
+  "item_inventory": {
+	"equipment": {
+	  "Axe": {
+		"amount": null,
+		"description": "You can use this to cut and cut wood",
+		"item_name": "Axe",
+		"src": "res://assets/object/item/kapak.png",
+		"type_item": "equipment"
+	  },
+	  "Hammer": {
+		"amount": null,
+		"description": "You can use this to crush anything other than wood",
+		"item_name": "Hammer",
+		"src": "res://assets/object/item/palu.png",
+		"type_item": "equipment"
+	  }
+	},
+	"item_material": {
+	  "big_wood": {
+		"amount": 0,
+		"description": "Diambil dari dunia yang indah kamu dapat menggunakan nya",
+		"item_name": "Big wood",
+		"src": "res://assets/object/item/kayuBesar.png",
+		"type_item": "item_material"
+	  },
+	  "broken_stone": {
+		"amount": 0,
+		"description": "Kamu bisa menggunakan ini untuk membuat sesuatu",
+		"item_name": "Broken stone",
+		"src": "res://assets/object/item/pecahanBatu.png",
+		"type_item": "item_material"
+	  },
+	  "small_wood": {
+		"amount": 0,
+		"description": "Diambil dari pepohonan yang kecil bisa dijadikan sesuatu",
+		"item_name": "Small wood",
+		"src": "res://assets/object/item/kayuKecil.png",
+		"type_item": "item_material"
+	  },
+	"api": {
+		"amount": 0,
+		"description": "Api",
+		"item_name": "Fire",
+		"src": "res://assets/object/item/api.png",
+		"type_item": "equipment"
+	  },
+	  "besi_berkarat": {
+		"amount": 0,
+		"description": "Besi berkarat",
+		"item_name": "Besi berkarat",
+		"src": "res://assets/object/item/besi_berkarat.png",
+		"type_item": "equipment"
+	  }
+	}
+  },
   "mission": {
 	"mission1": {
 	  "001": {
-		"material_name": "rock",
+		"material_name": "Broken stone",
 		"value": "5"
 	  },
 	  "002": {
-		"material_name": "wood",
+		"material_name": "Small wood",
 		"value": "8"
 	  }
-	}, "mission2": {
+	},
+	"mission2": {
 	  "001": {
-		"material_name": "wood",
+		"material_name": "Big wood",
 		"value": "5"
 	  },
 	  "002": {
-		"material_name": "crystal",
+		"material_name": "Crystal",
+		"value": "8"
+	  }
+	},
+	"mission3": {
+	  "001": {
+		"material_name": "Small wood",
+		"value": "5"
+	  },
+	  "002": {
+		"material_name": "Crystal",
 		"value": "8"
 	  }
 	}
+  },
+  "mission_finish": {
+	"mission1": {
+	  "mission": false
+	},
+	"mission2": {
+	  "mission": false
+	},
+	"mission3": {
+	  "mission": false
+	}
+  },
+  "player_init": {
+	"scene": "res://src/Laboratory/Laboratory1.tscn"
+  },
+  "player_mission": {
+	"mission": null
+  },
+  "player_use_equip": {
+	"equip_use_name": null
   },
   "question": {
 	"Besi berkarat": {
@@ -41,13 +137,29 @@ var default_data = {
 	  "question": "Ketika kamu melarutkan tablet vitamin berkalsium tinggi ke dalam segelas air, kamu akan melihat gelembung-gelembung gas muncul dari dalam larutan. Hal ini membuktikan bahwa dalam peristiwa reaksi kimia dapat menimbulkan..?"
 	}
   },
-  "player_mission": {
-	"mission": null
-  },
-  "player_init": {
-	"scene":"res://src/Laboratory/Laboratory1.tscn"
-  },
   "talking": {
+	"dialog_crafter": {
+	  "001": {
+		"dialog": "Hello .... I'm a material maker here",
+		"npc_name": "Holdin"
+	  },
+	  "002": {
+		"dialog": "Reaksi kimia akan selalu disertai dengan energi. baik energi yang berupa panas, listrik atau pun cahaya.",
+		"npc_name": "Holdin"
+	  },
+	  "003": {
+		"dialog": "Reaksi kimia yang menghasilkan energi biasanya disebut dengan eksoterm sementara reaksi yang menyerap energi biasa disebut dengan reaksi endoterm.",
+		"npc_name": "Holdin"
+	  },
+	  "004": {
+		"dialog": "Do you want to make something?",
+		"npc_name": "Holdin"
+	  },
+	  "005": {
+		"dialog": "Sebelum kamu meminta ku membuatkan mu sesuatu kamu harus menjawab pertanyaan ku lebih dulu, apakah kamu bersedia?",
+		"npc_name": "Holdin"
+	  }
+	},
 	"dialog_prof_nurdin": {
 	  "001": {
 		"dialog": "Hi....... I am a professor in this laboratory",
@@ -92,94 +204,25 @@ var default_data = {
 		"npc_name": "yadi"
 	  }
 	},
-	  "dialog_crafter": {
-	  "001": {
-		"dialog": "Hello .... I'm a material maker here",
-		"npc_name": "Holdin"
-	  },
-	  "002": {
-		"dialog": "Reaksi kimia akan selalu disertai dengan energi. baik energi yang berupa panas, listrik atau pun cahaya.",
-		"npc_name": "Holdin"
-	  },
-	  "003": {
-		"dialog": "Reaksi kimia yang menghasilkan energi biasanya disebut dengan eksoterm sementara reaksi yang menyerap energi biasa disebut dengan reaksi endoterm.",
-		"npc_name": "Holdin"
-	  },
-	  "004": {
-		"dialog": "Do you want to make something?",
-		"npc_name": "Holdin"
-	  },
-	  "005": {
-		"dialog": "Sebelum kamu meminta ku membuatkan mu sesuatu kamu harus menjawab pertanyaan ku lebih dulu, apakah kamu bersedia?",
-		"npc_name": "Holdin"
-	  }
-	},
 	"end_dialog": {
 	  "001": {
 		"dialog": "Why are you still here, and not doing your job? I need it immediately"
 	  }
-	}
-  },
-  "item_inventory": {
-	"equipment": {
-	  "Axe": {
-		"amount": null,
-		"description": "You can use this to cut and cut wood",
-		"item_name": "Axe",
-		"src": "res://assets/object/item/kapak.png",
-		"type_item": "equipment"
-	  },
-	  "Hammer": {
-		"amount": null,
-		"description": "You can use this to crush anything other than wood",
-		"item_name": "Hammer",
-		"src": "res://assets/object/item/palu.png",
-		"type_item": "equipment"
-	  }
 	},
-	"item_material": {
-	  "broken_stone": {
-		"amount": 0,
-		"description": "Kamu bisa menggunakan ini untuk membuat sesuatu",
-		"item_name": "Broken stone",
-		"src": "res://assets/object/item/pecahanBatu.png",
-		"type_item": "item_material"
-	  },
-	  "big_wood": {
-		"amount": 0,
-		"description": "Diambil dari dunia yang indah kamu dapat menggunakan nya",
-		"item_name": "Big wood",
-		"src": "res://assets/object/item/kayuBesar.png",
-		"type_item": "item_material"
-	  },
-	  "small_wood": {
-		"amount": 0,
-		"description": "Diambil dari pepohonan yang kecil bisa dijadikan sesuatu",
-		"item_name": "Small wood",
-		"src": "res://assets/object/item/kayuKecil.png",
-		"type_item": "item_material"
+	"finish_dialog": {
+	  "001": {
+		"dialog": "Aku belum membutuhkan apapun saat ini... kuharap kamu tidak kecewa untuk datang di lain hari"
 	  }
-	}
-  },
-  "player_use_equip":{
-		"equip_use_name":null
-  },
-  "game_setting": {
-	"sound_fx": {
-	  "checked": true,
-	  "vol": 0
-	},
-	"sound_music": {
-	  "checked": true,
-	  "vol": 0
 	}
   }
 }
+
 
 signal updated_mission
 signal update_detail
 signal update_texture_equip
 signal update_npc
+signal update_crafting
 
 
 var json_data setget update_data
@@ -190,6 +233,7 @@ var item_data_show
 
 var equip_texture setget update_texture
 var path_texture
+var craft_finish = false setget update_craft
 
 
 var _file 
@@ -240,3 +284,7 @@ func update_npc_name(nameNPC):
 	npc_name = nameNPC
 	emit_signal("update_npc")
 
+
+func update_craft(craftFinish):
+	craft_finish = craftFinish
+	emit_signal("update_crafting")

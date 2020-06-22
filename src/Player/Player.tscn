@@ -65,7 +65,7 @@
 [ext_resource path="res://assets/player/idle_hammer/berhentipalu_0005.png" type="Texture" id=63]
 [ext_resource path="res://assets/player/idle_hammer/berhentipalu_0006.png" type="Texture" id=64]
 [ext_resource path="res://assets/player/idle_hammer/berhentipalu_0008.png" type="Texture" id=65]
-[ext_resource path="res://assets/font/letter_gothic24.tres" type="DynamicFont" id=66]
+[ext_resource path="res://assets/font/letter_gothic.tres" type="DynamicFont" id=66]
 [ext_resource path="res://assets/sound/player_hit_rock.wav" type="AudioStream" id=67]
 [ext_resource path="res://assets/sound/player_walk_3.wav" type="AudioStream" id=68]
 [ext_resource path="res://assets/sound/player_jump.wav" type="AudioStream" id=69]
@@ -73,15 +73,30 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 37 ), ExtResource( 44 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 43 ) ],
-"loop": false,
-"name": "ActionAxe",
+"frames": [ ExtResource( 8 ), ExtResource( 19 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "walkHammer",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 55 ), ExtResource( 49 ), ExtResource( 60 ), ExtResource( 61 ) ],
 "loop": true,
 "name": "IdleAxe",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 1 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "walkAxe",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 46 ), ExtResource( 45 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 47 ), ExtResource( 57 ), ExtResource( 53 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 44 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 43 ) ],
+"loop": false,
+"name": "ActionAxe",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 54 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 62 ), ExtResource( 65 ) ],
 "loop": true,
@@ -93,24 +108,9 @@ animations = [ {
 "name": "walk",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 46 ), ExtResource( 45 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 47 ), ExtResource( 57 ), ExtResource( 53 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 19 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "walkHammer",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 31 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 32 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 35 ) ],
 "loop": false,
 "name": "ActionHammer",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 1 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 25 ) ],
-"loop": true,
-"name": "walkAxe",
 "speed": 10.0
 } ]
 
@@ -186,10 +186,11 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -112.0
 margin_top = -90.0
-margin_right = 112.0
-margin_bottom = -65.0
+margin_right = 69.0
+margin_bottom = -73.0
 custom_fonts/font = ExtResource( 66 )
 text = "1x You Get Item"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

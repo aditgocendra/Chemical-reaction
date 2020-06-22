@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://assets/background/bg_world1.png" type="Texture" id=1]
 [ext_resource path="res://assets/tileset/tileset1024_512.png" type="Texture" id=2]
@@ -356,7 +356,15 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 111.101, 128.148 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="CapsuleShape2D" id=21]
+radius = 46.7314
+height = 127.372
+
+[sub_resource type="CapsuleShape2D" id=22]
+radius = 13.7058
+height = 23.054
+
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 175.534, 10 )
 
 [node name="World2" type="Node2D"]
@@ -384,7 +392,7 @@ format = 1
 tile_data = PoolIntArray( 917538, 0, 0, 917542, 1, 0, 917546, 2, 0, 917550, 3, 0, 917554, 1, 0, 917558, 2, 0, 917562, 3, 0, 917566, 1, 0, 917570, 2, 0, 917574, 3, 0, 917578, 1, 0, 917582, 2, 0, 917586, 3, 0, 917590, 1, 0, 917594, 2, 0, 917598, 3, 0, 917602, 1, 0, 917606, 2, 0, 917610, 3, 0, 917614, 14, 0, 917618, 15, 0, 917622, 14, 0, 917626, 15, 0, 917630, 14, 0, 917634, 13, 0, 1048610, 4, 0, 1048614, 5, 0, 1048618, 6, 0, 1048622, 7, 0, 1179682, 8, 0, 1179686, 9, 0, 1179690, 10, 0, 1179694, 11, 0, 1310754, 12, 0, 1310758, 13, 0, 1310762, 14, 0, 1310766, 15, 0, 1441805, 15, 0, 1441809, 15, 0, 1441813, 15, 0, 1441817, 15, 0, 1441821, 15, 0, 1441825, 15, 0, 1441829, 15, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 5208.29, 738.069 )
+position = Vector2( 1475.37, 1287.21 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 0, -126.618 )
@@ -399,7 +407,7 @@ position = Vector2( -110.772, 50.0292 )
 
 [node name="PortalIn" parent="Portal" instance=ExtResource( 6 )]
 position = Vector2( 1363.01, 1365.79 )
-next_scene_path = "res://src/World/World1.tscn"
+next_scene_path = "res://src/World/Worl d1.tscn"
 
 [node name="portal2" parent="Portal/PortalIn" index="0"]
 z_index = -1
@@ -431,6 +439,10 @@ z_index = -1
 
 [node name="PlatformUpDown2" parent="MovingPlatform" instance=ExtResource( 13 )]
 position = Vector2( 7704.29, 408.38 )
+z_index = -1
+
+[node name="PlatformUpDown3" parent="MovingPlatform" instance=ExtResource( 13 )]
+position = Vector2( 1794.68, 913.778 )
 z_index = -1
 
 [node name="Ground" type="Node2D" parent="."]
@@ -509,6 +521,18 @@ flip_h = true
 position = Vector2( 7053.53, 757.202 )
 texture = ExtResource( 9 )
 
+[node name="SmallTree5" type="Sprite" parent="Object/SmallTree"]
+position = Vector2( 5182.66, 651.069 )
+z_index = -1
+texture = ExtResource( 9 )
+flip_h = true
+
+[node name="AreaSmallWood" type="Area2D" parent="Object/SmallTree/SmallTree5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object/SmallTree/SmallTree5/AreaSmallWood"]
+position = Vector2( 0, 118.746 )
+shape = SubResource( 21 )
+
 [node name="BigTree" type="Node2D" parent="Object"]
 
 [node name="BigTree1" type="Sprite" parent="Object/BigTree"]
@@ -518,10 +542,16 @@ z_index = 20
 texture = ExtResource( 10 )
 
 [node name="BigTree2" type="Sprite" parent="Object/BigTree"]
-position = Vector2( 2732.89, 371 )
+position = Vector2( 2753.16, 287 )
 scale = Vector2( 7, 7 )
-z_index = -20
+z_index = -1
 texture = ExtResource( 10 )
+
+[node name="AreaBigWood" type="Area2D" parent="Object/BigTree/BigTree2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object/BigTree/BigTree2/AreaBigWood"]
+position = Vector2( -8.79041, 62.0099 )
+shape = SubResource( 22 )
 
 [node name="BigTree3" type="Sprite" parent="Object/BigTree"]
 position = Vector2( 781, 871.538 )
@@ -613,11 +643,10 @@ texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroupBridge/Bridge/StaticBody2D"]
 position = Vector2( 0, 57.6918 )
-shape = SubResource( 21 )
+shape = SubResource( 23 )
 
 [node name="SoundtrackWorld" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-autoplay = true
 
 [editable path="Portal/PortalIn"]
 

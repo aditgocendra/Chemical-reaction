@@ -19,8 +19,9 @@ func setItemTexture(path) -> void:
 	else: labelAmount.visible = false
 
 func _on_TouchItem_pressed() -> void:
-	if dataEquipment != null:
+	if dataEquipment != null and texture_item.texture != null:
 		GameDatabase.new_item_data = dataEquipment
+		
 		
 
 

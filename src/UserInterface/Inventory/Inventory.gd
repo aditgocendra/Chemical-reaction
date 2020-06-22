@@ -20,16 +20,17 @@ func _ready() -> void:
 		var newSlot = slotItem.duplicate()
 		
 		if _indexes < item_player.size():
-			itemContainer.add_child(newSlot)
-			newSlot.setItemTexture(item_player[_indexes])
-			newSlot.dataEquipment = item_player[_indexes]
+			if item_player[_indexes].amount > 0:
+				itemContainer.add_child(newSlot)
+				newSlot.setItemTexture(item_player[_indexes])
+				newSlot.dataEquipment = item_player[_indexes]
 		else:
 			itemContainer.add_child(newSlot)
 		
 
 func load_equipment():
 	item_player = data_game["item_inventory"]["item_material"].values()
-
+	
 
 
 
